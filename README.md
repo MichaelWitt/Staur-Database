@@ -3,7 +3,7 @@ Staur Database is the best employee database in the galaxy!
 
 ## Project Details
 
-Welcome to Mi-Notes! 
+Welcome to Staur Database! 
 
 Project Details
 
