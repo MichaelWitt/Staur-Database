@@ -29,36 +29,21 @@ function staurDatabase() {
 			name: 'redirect',
 			type: 'rawlist',
 			message: 'Where would you like us to take you?',
-			choices: [
-				'View Staur Team',
-				'View Departments',
-				'View Roles',
-				'View Employees',
-				'Add Department',
-				'Add Role',
-				'Add Employee',
-				'Exit'
-			]
+			choices: ['View Staur Team', 'View Employees', 'View Roles', 'View Departments', 'Add Employee', 'Exit']
 		})
 		.then((answer) => {
 			switch (answer.redirect) {
 				case 'View Staur Team':
 					viewStaurTeam();
 					break;
-				case 'View Departments':
-					viewDepartment();
+				case 'View Employees':
+					viewEmployees();
 					break;
 				case 'View Roles':
 					viewRoles();
 					break;
-				case 'View Employees':
-					viewEmployees();
-					break;
-				case 'Add Department':
-					addDepartment();
-					break;
-				case 'Add Role':
-					addRole();
+				case 'View Departments':
+					viewDepartment();
 					break;
 				case 'Add Employee':
 					addEmployee();
@@ -101,3 +86,80 @@ function viewEmployees() {
 		staurDatabase();
 	});
 }
+
+const addEmployee = () => {
+	inquirer
+		.prompt([
+			{
+				name: 'firstName',
+				type: 'input',
+				message: 'What is your employees first name?'
+			},
+			{
+				name: 'lastName',
+				type: 'input',
+				message: 'What is your employees last name?'
+			},
+			{
+				name: 'staurName',
+				type: 'input',
+				message: 'What is your employees staur name?'
+			},
+			{
+				name: 'staurLeader',
+				type: 'input',
+				message: 'Who is your employees staur leader?'
+			},
+			{
+				name: 'addedRole',
+				type: 'input',
+				message: 'What is your employees role?'
+			},
+			{
+				name: 'roleSalary',
+				type: 'input',
+				message: 'What is the salary of this role?'
+			},
+			{
+				name: 'departmentName',
+				type: 'input',
+				message: 'What is their department name?'
+			}
+		])
+		.then((answer) => {
+			connection.query(
+				'INSERT INTO staur_employees SET ?',
+				{
+					first_name: answer.firstName,
+					last_name: answer.lastName,
+					staur_name: answer.staurName,
+					staur_leader: answer.staurLeader
+				},
+				(err) => {
+					if (err) throw err;
+				}
+			);
+			connection.query(
+				'INSERT INTO staur_role SET ?',
+				{
+					title: answer.addedRole,
+					salary: answer.roleSalary
+				},
+				(err) => {
+					if (err) throw err;
+				}
+			);
+			connection.query(
+				'INSERT INTO staur_department SET ?',
+				{
+					department_name: answer.departmentName
+				},
+				(err) => {
+					if (err) throw err;
+					console.log('Success!');
+					viewStaurTeam();
+					staurDatabase();
+				}
+			);
+		});
+};
