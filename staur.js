@@ -30,6 +30,7 @@ function staurDatabase() {
 			type: 'rawlist',
 			message: 'Where would you like us to take you?',
 			choices: [
+				'View Staur Team',
 				'View Departments',
 				'View Roles',
 				'View Employees',
@@ -45,7 +46,7 @@ function staurDatabase() {
 					viewStaurTeam();
 					break;
 				case 'View Departments':
-					viewDatabase();
+					viewDepartment();
 					break;
 				case 'View Roles':
 					viewRoles();
@@ -69,7 +70,15 @@ function staurDatabase() {
 		});
 }
 
-function viewDatabase() {
+function viewStaurTeam() {
+	connection.query('SELECT * FROM staur_department, staur_role, staur_employees', function (err, res) {
+		if (err) throw err;
+		console.table(res);
+		staurDatabase();
+	});
+}
+
+function viewDepartment() {
 	connection.query('SELECT * FROM staur_department', function (err, res) {
 		if (err) throw err;
 		console.table(res);

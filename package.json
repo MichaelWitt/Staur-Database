@@ -1,25 +1,26 @@
 {
-  "name": "staur-database",
-  "version": "1.0.0",
-  "description": "Staur Database is the best employee database in the galaxy!",
-  "main": "staurDB.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MichaelWitt/Staur-Database.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MichaelWitt/Staur-Database/issues"
-  },
-  "homepage": "https://github.com/MichaelWitt/Staur-Database#readme",
-  "dependencies": {
-    "console.table": "^0.10.0",
-    "figlet": "^1.5.0",
-    "inquirer": "^7.3.3",
-    "mysql": "^2.18.1"
-  }
+	"name": "staur-database",
+	"version": "1.0.0",
+	"description": "Staur Database is the best employee database in the galaxy!",
+	"main": "staurDB.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node staur.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MichaelWitt/Staur-Database.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/MichaelWitt/Staur-Database/issues"
+	},
+	"homepage": "https://github.com/MichaelWitt/Staur-Database#readme",
+	"dependencies": {
+		"console.table": "^0.10.0",
+		"figlet": "^1.5.0",
+		"inquirer": "^7.3.3",
+		"mysql": "^2.18.1"
+	}
 }
