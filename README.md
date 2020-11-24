@@ -1,5 +1,5 @@
 # Staur-Database
-Staur Database is the best employee database in the galaxy! 
+Staur Database is the best employee database in the galaxy! Display information about your Staur Team, Employees, you name it. Thanks for stopping in!
 
 ## Project Details
 
@@ -21,8 +21,8 @@ This application was developed using:
 
 View the repository at: https://github.com/MichaelWitt/Staur-Database
 
-<!-- Preview: ![Screenshot](./assets/img/Note-Taker.png)
-Demo: ![Screenshot](./assets/img/Note-Taker-Demo.png) -->
+<!-- Preview: ![Screenshot](./assets/img/Staur-Database.png)
+Demo: ![Screenshot](./assets/img/Staur-Database-Demo.png) -->
 
 ## Updates
 
