@@ -109,11 +109,6 @@ const addEmployee = () => {
 				message: 'What is your employees staur name?'
 			},
 			{
-				name: 'staurLeader',
-				type: 'input',
-				message: 'Who is your employees staur leader?'
-			},
-			{
 				name: 'addedRole',
 				type: 'input',
 				message: 'What is your employees role?'
@@ -127,6 +122,11 @@ const addEmployee = () => {
 				name: 'departmentName',
 				type: 'input',
 				message: 'What is their department name?'
+			},
+			{
+				name: 'staurLeader',
+				type: 'input',
+				message: 'Who is your employees staur leader?'
 			}
 		])
 		.then((answer) => {
@@ -160,7 +160,6 @@ const addEmployee = () => {
 				(err) => {
 					if (err) throw err;
 					console.log('Success!');
-					viewStaurTeam();
 					staurDatabase();
 				}
 			);
