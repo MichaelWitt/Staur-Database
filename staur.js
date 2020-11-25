@@ -56,11 +56,14 @@ function staurDatabase() {
 }
 
 function viewStaurTeam() {
-	connection.query('SELECT * FROM staur_department, staur_role, staur_employees', function (err, res) {
-		if (err) throw err;
-		console.table(res);
-		staurDatabase();
-	});
+	connection.query(
+		'SELECT * FROM staur_employees INNER JOIN staur_role ON staur_employees.id = staur_role.id INNER JOIN staur_department ON staur_role.id = staur_department.id',
+		function (err, res) {
+			if (err) throw err;
+			console.table(res);
+			staurDatabase();
+		}
+	);
 }
 
 function viewDepartment() {

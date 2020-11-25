@@ -32,3 +32,4 @@ INSERT INTO staur_employees (first_name, last_name, staur_name, staur_leader)
 VALUES ("Destiny", "Swimins", "Xupernova", "Maximus Jones"), ("Rolly", "Juppy", "Dive Master", "Cheff Cuppins");
 
 SELECT * FROM staur_employees;
+
