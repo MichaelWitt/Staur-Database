@@ -22,8 +22,8 @@ This application was developed using: Node.js, MySql, Inquirer, Figlet, JavaScri
 
 View the repository at: https://github.com/MichaelWitt/Staur-Database
 
-<!-- Preview: ![Screenshot](./assets/img/Staur-Database.png)
-Demo: ![Screenshot](./assets/img/Staur-Database-Demo.png) -->
+Preview: ![Screenshot](./assets/img/staur-db.png)
+Demo: ![Screenshot](./assets/img/staur-demo.png)
 
 ## Updates
 
