@@ -36,6 +36,7 @@ function staurDatabase() {
 				'View Departments',
 				'Add Employee',
 				'Update Role',
+				'Remove Employee',
 				'Exit'
 			]
 		})
@@ -58,6 +59,9 @@ function staurDatabase() {
 					break;
 				case 'Update Role':
 					updateRole();
+					break;
+				case 'Remove Employee':
+					removeEmployee();
 					break;
 				case 'Exit':
 					connection.end();
@@ -221,6 +225,30 @@ const updateRole = () => {
 						id: answer.employeeId
 					}
 				],
+				(err) => {
+					if (err) throw err;
+					console.log('Success!');
+					staurDatabase();
+				}
+			);
+		});
+};
+
+const removeEmployee = () => {
+	inquirer
+		.prompt([
+			{
+				name: 'employeeId',
+				type: 'input',
+				message: 'What employee id would you like to delete?'
+			}
+		])
+		.then((answer) => {
+			connection.query(
+				'DELETE FROM staur_employees WHERE ?',
+				{
+					id: answer.employeeId
+				},
 				(err) => {
 					if (err) throw err;
 					console.log('Success!');
