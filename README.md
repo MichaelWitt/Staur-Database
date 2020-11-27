@@ -12,7 +12,7 @@ Thanks for stopping in! I look forward to working together to make the present a
 
 ## Application
 
-Staur Database:
+Staur Database: https://youtu.be/E9-dw1bfymo
 
 ## Build Details
 
@@ -23,7 +23,7 @@ This application was developed using: Node.js, MySql, Inquirer, Figlet, JavaScri
 View the repository at: https://github.com/MichaelWitt/Staur-Database
 
 Preview: ![Screenshot](./assets/img/staur-db.png)
-Demo: ![Screenshot](./assets/img/staur-demo.png)
+Database: ![Screenshot](./assets/img/staur-demo.png)
 
 ## Updates
 
