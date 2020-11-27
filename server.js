@@ -29,7 +29,15 @@ function staurDatabase() {
 			name: 'redirect',
 			type: 'rawlist',
 			message: 'Where would you like us to take you?',
-			choices: ['View Staur Team', 'View Employees', 'View Roles', 'View Departments', 'Add Employee', 'Exit']
+			choices: [
+				'View Staur Team',
+				'View Employees',
+				'View Roles',
+				'View Departments',
+				'Add Employee',
+				'Update Role',
+				'Exit'
+			]
 		})
 		.then((answer) => {
 			switch (answer.redirect) {
@@ -47,6 +55,9 @@ function staurDatabase() {
 					break;
 				case 'Add Employee':
 					addEmployee();
+					break;
+				case 'Update Role':
+					updateRole();
 					break;
 				case 'Exit':
 					connection.end();
@@ -157,6 +168,59 @@ const addEmployee = () => {
 				{
 					department_name: answer.departmentName
 				},
+				(err) => {
+					if (err) throw err;
+					console.log('Success!');
+					staurDatabase();
+				}
+			);
+		});
+};
+
+const updateRole = () => {
+	inquirer
+		.prompt([
+			{
+				name: 'employeeId',
+				type: 'input',
+				message: 'What employee id would you like to update?'
+			},
+			{
+				name: 'newRole',
+				type: 'input',
+				message: 'What is their new role?'
+			},
+			{
+				name: 'newSalary',
+				type: 'input',
+				message: 'What is their new salary?'
+			}
+		])
+		.then((answer) => {
+			connection.query(
+				'UPDATE staur_role SET ? WHERE ?',
+				[
+					{
+						title: answer.newRole
+					},
+					{
+						id: answer.employeeId
+					}
+				],
+				(err) => {
+					if (err) throw err;
+				}
+			);
+			connection.query(
+				'UPDATE staur_role SET ? WHERE ?',
+				[
+					{
+						salary: answer.newSalary
+					},
+					{
+						id: answer.employeeId
+					}
+				],
 				(err) => {
 					if (err) throw err;
 					console.log('Success!');
